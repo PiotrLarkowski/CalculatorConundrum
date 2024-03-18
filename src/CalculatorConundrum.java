@@ -16,9 +16,16 @@ public class CalculatorConundrum {
         } else if (operation.equals("*")) {
             value = operand1 * operand2;
             return "" + operand1 + " * " + operand2 + " = " + value;
-        } else if (operation.equals("/")) {
-            value = operand1 / operand2;
-            return "" + operand1 + " / " + operand2 + " = " + value;
+        }else if(operation.equals("/")){
+            try{
+                if(operand1 == 0||operand2==0){
+                    value = operand1/operand2;
+                }
+            }catch(ArithmeticException arithmeticException){
+                System.out.println(("Division by zero is not allowed"));
+            }
+            value = operand1/operand2;
+            return "" +operand1+" / " + operand2 + " = " + value;
         }
         return "0";
     }
